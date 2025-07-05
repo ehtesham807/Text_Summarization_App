@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Note Processor</title>
+    <link rel="stylesheet" href="text.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Intelligent Note Processor</h1>
+            <p>Transform your notes into structured summaries with AI-powered analysis</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2>📝 Input Your Content</h2>
+                
+                <div class="file-input">
+                    <label for="fileInput">
+                        📄 Upload Audio/Text File (Optional)
+                        <input type="file" id="fileInput" accept=".txt,.mp3,.wav,.m4a,.ogg" />
+                    </label>
+                </div>
+
+                <div class="input-container">
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Paste your class notes, transcripts, or any text content here...&#10;&#10;Example:&#10;- Introduction to Machine Learning&#10;- Supervised learning uses labeled data&#10;- Unsupervised learning finds patterns in unlabeled data&#10;- Neural networks mimic brain structure..."
+                    ></textarea>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="processNotes()">🚀 Process Notes</button>
+                    <button class="btn btn-secondary" onclick="clearContent()">🗑️ Clear</button>
+                    <button class="btn btn-secondary" onclick="loadSampleData()">📋 Load Sample</button>
+                </div>
+
+                <div class="options">
+                    <div class="option-group">
+                        <label>Summary Length:</label>
+                        <select id="summaryLength">
+                            <option value="short">Short (2-3 sentences)</option>
+                            <option value="medium" selected>Medium (5-7 sentences)</option>
+                            <option value="long">Long (8-10 sentences)</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label>Quiz Questions:</label>
+                        <select id="quizCount">
+                            <option value="3">3 Questions</option>
+                            <option value="5" selected>5 Questions</option>
+                            <option value="8">8 Questions</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results" class="results hidden">
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="wordCount">0</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="sentenceCount">0</div>
+                        <div class="stat-label">Sentences</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="conceptCount">0</div>
+                        <div class="stat-label">Key Concepts</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="questionCount">0</div>
+                        <div class="stat-label">Quiz Questions</div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h3><span class="icon">📖</span> Summary</h3>
+                    <div id="summaryContent" class="summary-content"></div>
+                </div>
+
+                <div class="result-section">
+                    <h3><span class="icon">🗂️</span> Structured Notes</h3>
+                    <div id="structuredContent" class="structured-content"></div>
+                </div>
+
+                <div class="result-section">
+                    <h3><span class="icon">🎯</span> Key Concepts</h3>
+                    <div id="keyConcepts" class="key-concepts"></div>
+                </div>
+
+                <div class="result-section">
+                    <h3><span class="icon">❓</span> Quiz Questions</h3>
+                    <div id="quizQuestions" class="quiz-questions"></div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                Processing your notes with AI magic...
+            </div>
+        </div>
+    </div>
+
+    <script src="text.js"></script>
+</body>
+</html>
